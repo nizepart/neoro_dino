@@ -52,8 +52,9 @@ class Dino(pygame.sprite.Sprite):
         self.is_jumping = False
 
     def jump(self):
-        jump_sfx.play()
-        self.is_jumping = True
+        if self.rect.centery >= 340:
+            jump_sfx.play()
+            self.is_jumping = True
 
     def apply_gravity(self):
         if self.rect.centery <= 340 and self.is_jumping is False:
